@@ -1,1 +1,5 @@
 node i express OR npm i express - you need to install before running the code 
+POST - http://localhost:3000/api/data
+GET ALL - http://localhost:3000/api/getdata
+GET by name - http://localhost:3000/api/data/Dark%20Prince
+
