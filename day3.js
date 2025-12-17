@@ -57,6 +57,26 @@ router.get("/data/:name", async (req, res) => {
     }
 });
 
+
+router.delete("/data/:name", async (req, res) => {
+    try {
+        const deletedData = await Person.findOneAndDelete({
+            name: req.params.name
+        });
+
+        if (!deletedData) {
+            return res.status(404).json({ message: "Data not found" });
+        }
+
+        res.status(200).json({
+            message: "Data deleted successfully",
+            deletedData
+        });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 // Connect router
 app.use("/api", router);
 
