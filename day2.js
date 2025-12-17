@@ -44,10 +44,10 @@ app.post("/add", (req, res) => {
     if (!req.body || Object.keys(req.body).length === 0) {
         return res.status(400).json({ message: "Request body is empty" });
     }
-
+    
     const { name, age, city } = req.body;
 
-    // Validation
+
     if (!name || !age || !city) {
         return res.status(400).json({
             message: "name, age, and city are required"
@@ -69,9 +69,7 @@ app.post("/add", (req, res) => {
     });
 });
 
-/**
- * DELETE: Remove user by ID
- */
+
 app.delete("/alldata/:id", (req, res) => {
     const id = Number(req.params.id);
 
@@ -85,9 +83,7 @@ app.delete("/alldata/:id", (req, res) => {
     res.status(200).json({ message: "Data deleted successfully" });
 });
 
-/**
- * Server start
- */
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
